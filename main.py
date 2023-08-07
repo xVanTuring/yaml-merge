@@ -9,16 +9,21 @@ except ImportError:
 
 import sys
 import os
-print(sys.argv)
-if len(sys.argv) != 3:
-    print("Yaml Merge:")
-    print("main.py", "source-file","append-filed")
-    print("e.g.", "main.py","appendee.yaml","appender.yaml")
-    exit()
+import argparse
+parser = argparse.ArgumentParser(
+    prog='YamlMerge',
+    description='Merge two yaml file and output to stdout',
+    epilog='xVanTuring with ♥'
+)
+parser.add_argument('-b','--behaviour',help='behaviour when key exists in both yaml.[todo]',choices=['o','m'])
+parser.add_argument('source_file')
+parser.add_argument('append_file')
+args = parser.parse_args()
 
 
-appendee_path = sys.argv[1]
-appender_path = sys.argv[2]
+
+appendee_path = args.source_file
+appender_path = args.append_file
 
 if not os.path.exists(appendee_path) or not os.path.exists(appender_path):
     print("Can't find input files")
