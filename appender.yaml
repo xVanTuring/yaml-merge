@@ -1,2 +1,14 @@
-b:
-  - b
+external-controller: '0.0.0.0:9090'
+tun:
+  enable: true
+  stack: system
+  dns-hijack:
+    - any:53
+  auto-route: true
+  auto-redir: true
+  auto-detect-interface: true
+dns:
+  listen: 0.0.0.0:1053
+rules:
+  - 'DST-PORT,9993,DIRECT'
+  - 'SRC-PORT,9993,DIRECT'
