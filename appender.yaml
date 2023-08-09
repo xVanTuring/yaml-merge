@@ -12,3 +12,4 @@ dns:
 rules:
   - 'DST-PORT,9993,DIRECT'
   - 'SRC-PORT,9993,DIRECT'
+  - 'DOMAIN-SUFFIX,digicert.com,老猫云'

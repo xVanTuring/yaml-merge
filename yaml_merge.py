@@ -47,7 +47,9 @@ def merge_dict(appendee_dict: dict, appender_dict: dict):
 
 
 def merge_list(appendee_list: list, appender_list: list):
-    appendee_list.extend(appender_list)
+    for item in appender_list:
+        if item not in appendee_list:
+            appendee_list.append(item)
 
 
 def check_type_same(a, b, key="<root>"):
